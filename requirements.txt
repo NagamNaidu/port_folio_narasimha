@@ -1,1 +1,7 @@
 streamlit-lottie
+streamlit
+streamlit-lottie
+pandas
+numpy
+matplotlib
+scikit-learn
