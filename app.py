@@ -84,24 +84,27 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- HEADER ---
+# --- HEADER ---
 with st.container():
-    st.markdown(f"""
-    <div class="main-card">
-        <div style="display: flex; align-items: center; justify-content: center;">
-            <img src="1000061147.jpg" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; margin-right: 20px;">
-            <div>
-                <h1 style='text-align: center;'>{NAME}</h1>
-                <p style='text-align: center;'>{DESCRIPTION}</p>
-                <p style='text-align: center;'>📧 {EMAIL} | 📞 {PHONE}</p>
-                <p style='text-align: center;'>
-                    <a href='{LINKEDIN}' target='_blank'>LinkedIn</a> |
-                    <a href='{GITHUB}' target='_blank'>GitHub</a> |
-                    <a href='{RESUME_LINK}' download>Download Resume</a>
-                </p>
-            </div>
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        try:
+            st.image("1000061147.jpg", width=150, caption="Profile Picture")
+        except FileNotFoundError:
+            st.error("Profile image not found. Please make sure '1000061147.jpg' is in the same folder as your app.py")
+    with col2:
+        st.markdown(f"""
+        <div class="main-card">
+            <h1 style='text-align: center;'>{NAME}</h1>
+            <p style='text-align: center;'>{DESCRIPTION}</p>
+            <p style='text-align: center;'>📧 {EMAIL} | 📞 {PHONE}</p>
+            <p style='text-align: center;'>
+                <a href='{LINKEDIN}' target='_blank'>LinkedIn</a> |
+                <a href='{GITHUB}' target='_blank'>GitHub</a> |
+                <a href='{RESUME_LINK}' download>Download Resume</a>
+            </p>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # --- TABS ---
 tabs = st.tabs(["About Me", "Career Objective", "Experience", "Technologies", "Projects", "Education", "Contact Me"])
