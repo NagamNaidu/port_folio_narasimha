@@ -86,25 +86,25 @@ st.markdown("""
 # --- HEADER ---
 # --- HEADER ---
 with st.container():
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 3])  # 1:3 ratio
+
     with col1:
-        try:
-            st.image("1000061147.jpg", width=150, caption="Profile Picture")
-        except FileNotFoundError:
-            st.error("Profile image not found. Please make sure '1000061147.jpg' is in the same folder as your app.py")
+        st.image("1000061147.jpg", width=180, caption="Profile Picture")
+
     with col2:
         st.markdown(f"""
-        <div class="main-card">
-            <h1 style='text-align: center;'>{NAME}</h1>
-            <p style='text-align: center;'>{DESCRIPTION}</p>
-            <p style='text-align: center;'>📧 {EMAIL} | 📞 {PHONE}</p>
-            <p style='text-align: center;'>
+        <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <h1 style='margin-bottom: 10px;'>{NAME}</h1>
+            <p style='margin-top: 0; font-size: 18px;'>{DESCRIPTION}</p>
+            <p style='margin-top: 0; font-size: 16px;'>📧 {EMAIL} | 📞 {PHONE}</p>
+            <p style='margin-top: 0; font-size: 16px;'>
                 <a href='{LINKEDIN}' target='_blank'>LinkedIn</a> |
                 <a href='{GITHUB}' target='_blank'>GitHub</a> |
                 <a href='{RESUME_LINK}' download>Download Resume</a>
             </p>
         </div>
         """, unsafe_allow_html=True)
+
 
 # --- TABS ---
 tabs = st.tabs(["About Me", "Career Objective", "Experience", "Technologies", "Projects", "Education", "Contact Me"])
